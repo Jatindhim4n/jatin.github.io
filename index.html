@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jatin's Portfolio</title>
+
+    <style>
+        /* --- 1. GENERAL LAYOUT --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000000;
+            color: #333;
+            margin: 0;
+            /* GAP FIX: This 400px pushes the content down so it doesn't touch the image */
+            padding-top: 400px; 
+        }
+        h1{
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        /* --- 2. HEADER & NAVIGATION --- */
+        header {
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 20px;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+            /* Smooth Animation settings */
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: padding, height; 
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .profile-img {
+            
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #333;
+            margin-bottom: 10px;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Navigation Menu (New!) */
+        nav {
+            margin-top: 15px;
+        }
+        
+        nav a {
+            margin: 25px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #007bff; /* Blue on hover */
+        }
+
+        /* --- SCROLLED STATE (Animation) --- */
+        header.scrolled {
+            padding: 10px 20px;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        header.scrolled .profile-img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0;
+            margin-right: 15px;
+            border-width: 1px;
+        }
+
+        header.scrolled h1 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        header.scrolled p, header.scrolled nav {
+            display: none; /* Hide bio and nav when scrolling to save space */
+        }
+
+        /* --- 3. CARDS & SECTIONS --- */
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .btn:hover { background-color: #0056b3; }
+
+        /* --- 4. NEW: SKILLS TAGS --- */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            background-color: #e3f2fd;
+            color: #007bff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid #b3d7ff;
+        }
+
+        /* --- 5. NEW: EDUCATION --- */
+        .education-item {
+            border-left: 4px solid #007bff;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        .education-item h3 { margin: 0; font-size: 1.1rem; }
+        .education-item p { margin: 5px 0; color: #555; }
+        
+        .modules-list {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        /* --- FOOTER --- */
+        footer { text-align: center; padding-bottom: 40px; margin-top: 50px;}
+        .social-link { margin: 0 10px; color: #333; text-decoration: none; border-bottom: 2px solid #007bff; }
+    </style>
+</head>
+
+<body>
+
+    <header id="myHeader">
+        <img src="profile.jpg" alt="Jatin's Profile" class="profile-img">
+        
+        <div class="header-text">
+            <h1 style="text-align: center;">Jatin Dhiman</h1>
+            <p>2nd Year BSc Computer Science with AI Student</p>
+            <nav>
+                <a href="#About">About</a>
+                <a href="#Skills">Skills</a>
+                <a href="#Projects">Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id = "About" class="container">
+        <h2 style="color: white;">About Me</h2>
+        <div class="card">
+            <p>
+                I am a passionate student balancing university with work. 
+                I am currently focused on building strong foundations in 
+                <strong>Java and Python</strong>, while applying these skills to 
+                <strong>academic AI & Data concepts</strong>.
+            </p>
+            <a href="cv.pdf" class="btn" download>Download my resume</a>
+        </div>
+    </section>
+
+
+
+    <section id="Skills" class="container">
+        <h2>Technical Skills</h2>
+        <div class="card">
+            <p><strong>
+                Languages & Tools
+            </strong></p>
+            <div class="Skill-grid">
+                <span class="skill tag">Java</span>
+                <span class="skill tag">Python</span>
+                <span class="skill tag">HTML & CSS</span>
+                <span class="skill tag">GitHub</span>
+                <span class="skill tag">VS Code</span>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <section id = "Education" class="container">
+        <h2>Education</h2>
+        <div class="card">
+            <div class="Eduction-item">
+                <h3>
+                    BSc Computer Science With AI
+                </h3>
+                <p><strong>University of Huddersfield</strong> | 2024 - 2028</strong></p>
+                <p class="modules-list">
+                    Relevant Modules: Data Structures & Algorithms, Database Management, 
+                    Intro to AI, Object-Oriented Programming.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section id = "Projects" class="container">
+        <h2 style="color: white;">Projects</h2>
+        <div class="card">
+            <p>A central repository containing my laboratory work including:</p>
+            <ul>
+                <li>Data Structures (DSA) in Java</li>
+                <li>SQL Database Queries</li>
+                <li>Intro to AI & Python scripts</li>
+                <li>Python projects</li>
+            </ul>
+            <a href="https://github.com/Jatindhim4n/UniversityPracticals" class="btn" target="_blank">View Code on GitHub</a>
+        </div>
+    </section>
+
+    <footer class="container">
+        <h2 style="color: white;">Contact Me</h2>
+        <p style="color: white;">Connect with me:</p>
+        <a href="https://www.linkedin.com/in/jatin-dhiman-9b7b842a3/" class="social-link" target="_blank" style="color: white;">LinkedIn</a>
+        <a href="https://www.instagram.com/jatindhim4n/" class="social-link" target="_blank" style="color: white;">Instagram</a>
+    </footer>
+
+    <script>
+        window.onscroll = function() {
+            var header = document.getElementById("myHeader");
+            
+            // Debugging: This will print to the console if it works
+            console.log("Scrolling! Position:", window.scrollY); 
+
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        };
+    </script>
+
+</body>
+</html>
